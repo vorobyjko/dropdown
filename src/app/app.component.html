@@ -1,0 +1,10 @@
+<div (click)="open()" [ngClass]="'dropdown-value' + (show ? ' open' : '')">
+  {{selected || defaultValue}}
+  <div [ngClass]="(show ? 'arrow-up' : 'arrow-down')"></div>
+</div>
+<ul *ngIf="show" class="dropdown">
+  <li *ngFor="let movie of data" (click)="select(movie)">
+    {{movie}}
+  </li>
+</ul>
+<div class="clear" (click)="clear()" *ngIf="!!selected">Clear</div>
